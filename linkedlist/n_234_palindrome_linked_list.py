@@ -1,3 +1,4 @@
+from collections import deque
 from typing import Optional
 
 from utils.time_measurement import time_measurement
@@ -16,10 +17,14 @@ class PalindromeLinkedList:
         if not head:
             return False
 
-        word = [head.val]
-        curr_head = head.next
+        q = deque()
+        curr_head = head
         while curr_head:
-            word.append(curr_head.val)
+            q.append(curr_head.val)
             curr_head = curr_head.next
 
-        return word == word[::-1]
+        while len(q) > 1:
+            if q.popleft() != q.pop():
+                return False
+
+        return True
