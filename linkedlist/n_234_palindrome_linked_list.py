@@ -1,4 +1,3 @@
-from collections import deque
 from typing import Optional
 
 from utils.time_measurement import time_measurement
@@ -14,17 +13,18 @@ class PalindromeLinkedList:
     @staticmethod
     @time_measurement
     def solution(head: Optional[ListNode]) -> bool:
-        if not head:
-            return False
+        reverse = None  # create a linklist to store the values in reverse order
+        slow_runner = fast_runner = head  # initialize values
 
-        q = deque()
-        curr_head = head
-        while curr_head:
-            q.append(curr_head.val)
-            curr_head = curr_head.next
+        # reverse the linklist using the runner concept
+        while fast_runner and fast_runner.next:
+            fast_runner = fast_runner.next.next
+            reverse, reverse.next, slow_runner = slow_runner, reverse, slow_runner.next
 
-        while len(q) > 1:
-            if q.popleft() != q.pop():
-                return False
+        if fast_runner:
+            slow_runner = slow_runner.next
 
-        return True
+        # check if the list is palindrome
+        while reverse and reverse.val == slow_runner.val:
+            slow_runner, reverse = slow_runner.next, reverse.next
+        return not reverse
