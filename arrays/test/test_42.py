@@ -1,6 +1,6 @@
 import unittest
 
-from array.n_42_trapping_rain_water import TrappingRainWater
+from arrays.n_42_trapping_rain_water import TrappingRainWater
 
 
 class MyTestCase(unittest.TestCase):

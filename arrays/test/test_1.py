@@ -1,6 +1,6 @@
 import unittest
 
-from array.n_1_two_sum import TwoSome
+from arrays.n_1_two_sum import TwoSome
 
 
 class MyTestCase(unittest.TestCase):

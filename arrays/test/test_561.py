@@ -1,6 +1,6 @@
 import unittest
 
-from array.n_561_array_partition import ArrayPartition
+from arrays.n_561_array_partition import ArrayPartition
 
 
 class MyTestCase(unittest.TestCase):

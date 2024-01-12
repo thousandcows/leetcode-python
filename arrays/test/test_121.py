@@ -1,6 +1,6 @@
 import unittest
 
-from array.n_121_best_time_to_buy_and_sell_stock import BestTimeToBuyAndSellStock
+from arrays.n_121_best_time_to_buy_and_sell_stock import BestTimeToBuyAndSellStock
 
 
 class MyTestCase(unittest.TestCase):

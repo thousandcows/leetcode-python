@@ -1,6 +1,6 @@
 import unittest
 
-from array.n_15_three_sum import ThreeSumTwoPointer
+from arrays.n_15_three_sum import ThreeSumTwoPointer
 
 
 class MyTestCase(unittest.TestCase):
