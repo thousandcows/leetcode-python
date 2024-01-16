@@ -11,10 +11,15 @@ class SwapNodesInPair:
     @staticmethod
     @time_measurement
     def solution(head: ListNode | None) -> ListNode | None:
-        curr = head
+        root = prev = ListNode(None)
+        prev.next = head
+        while head and head.next:
+            b = head.next
+            head.next = b.next
+            b.next = head
 
-        while curr and curr.next:
-            curr.val, curr.next.val = curr.next.val, curr.val
-            curr = curr.next.next
+            prev.next = b
 
-        return head
+            head = head.next
+            prev = prev.next.next
+        return root.next
