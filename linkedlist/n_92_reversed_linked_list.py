@@ -11,7 +11,6 @@ class ReverseLinkedList:
     @staticmethod
     @time_measurement
     def solution(head, left: int, right: int) -> ListNode | None:
-
         if not head or left == right:
             return head
 
