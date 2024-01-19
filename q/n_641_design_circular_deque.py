@@ -1,6 +1,7 @@
 from collections import deque
-class MyCircularDeque:
 
+
+class MyCircularDeque:
     def __init__(self, k: int):
         self.q = deque()
         self.size = k
