@@ -9,20 +9,20 @@ class MyTestCase(unittest.TestCase):
         k = 2
         expected = [[2, 4], [3, 4], [2, 3], [1, 2], [1, 3], [1, 4]]
         self.assertEqual(
-            sorted(expected), sorted(Combinations.solution(n, k))
+            sorted(expected), sorted(Combinations.solution_dfs(n, k))
         )  # add assertion here
 
     def test_case_two(self):
         n = 1
         k = 1
         expected = [[1]]
-        self.assertEqual(expected, sorted(Combinations.solution(n, k)))
+        self.assertEqual(expected, sorted(Combinations.solution_dfs(n, k)))
 
     def test_case_three(self):
         n = 2
         k = 1
         expected = [[1], [2]]
-        self.assertEqual(expected, sorted(Combinations.solution(n, k)))
+        self.assertEqual(expected, sorted(Combinations.solution_dfs(n, k)))
 
     def test_case_four(self):
         n = 20
@@ -219,7 +219,7 @@ class MyTestCase(unittest.TestCase):
             [18, 20],
             [19, 20],
         ]
-        self.assertEqual(expected, sorted(Combinations.solution(n, k)))
+        self.assertEqual(expected, sorted(Combinations.solution_dfs(n, k)))
 
 
 if __name__ == "__main__":
