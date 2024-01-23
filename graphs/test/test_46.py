@@ -7,17 +7,19 @@ class MyTestCase(unittest.TestCase):
     def test_case_one(self):
         nums = [1, 2, 3]
         expected = [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]]
-        self.assertEqual(expected, Permutations.solution(nums))  # add assertion here
+        self.assertEqual(
+            expected, Permutations.solution_dfs(nums)
+        )  # add assertion here
 
     def test_case_two(self):
         nums = [0, 1]
         expected = [[0, 1], [1, 0]]
-        self.assertEqual(expected, Permutations.solution(nums))
+        self.assertEqual(expected, Permutations.solution_dfs(nums))
 
     def test_case_three(self):
         nums = [1]
         expected = [[1]]
-        self.assertEqual(expected, Permutations.solution(nums))
+        self.assertEqual(expected, Permutations.solution_dfs(nums))
 
     def test_case_four(self):
         nums = [1, 2, 3, 4, 5, 6]
@@ -744,7 +746,7 @@ class MyTestCase(unittest.TestCase):
             [6, 5, 4, 3, 2, 1],
         ]
 
-        self.assertEqual(expected, Permutations.solution(nums))
+        self.assertEqual(expected, Permutations.solution_dfs(nums))
 
 
 if __name__ == "__main__":
