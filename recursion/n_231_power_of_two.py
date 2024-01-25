@@ -15,3 +15,8 @@ class PowerOfTwo:
             return is_power(num // 2)
 
         return is_power(n)
+
+    @staticmethod
+    @time_measurement
+    def solution_without_recursion(n: int) -> bool:
+        return n and not (n & n - 1)
