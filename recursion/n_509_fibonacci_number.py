@@ -5,7 +5,11 @@ class FibonacciNumber:
     @staticmethod
     @time_measurement
     def solution(n: int) -> int:
+        memoization = [0, 1]
         if n <= 1:
-            return n
+            return memoization[n]
 
-        return FibonacciNumber.solution(n - 1) + FibonacciNumber.solution(n - 2)
+        for i in range(2, n + 1):
+            memoization.append(memoization[i - 1] + memoization[i - 2])
+
+        return memoization[n]
