@@ -5,7 +5,7 @@ from arrays.n_1995_count_special_quadruplets import CountSpecialQuadruplets
 
 class MyTestCase(unittest.TestCase):
     def test_case_one(self):
-        nums = [1, 2, 3, 4]
+        nums = [1, 2, 3, 6]
         expected = 1
         self.assertEqual(
             expected, CountSpecialQuadruplets.solution(nums)

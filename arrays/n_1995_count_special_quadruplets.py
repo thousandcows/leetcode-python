@@ -9,10 +9,8 @@ class CountSpecialQuadruplets:
     def solution(nums: list[int]) -> int:
         if len(nums) < 4:
             return 0
-
-        ans = 0
-        for combi in combinations(nums, 4):
-            if combi[0] + combi[1] + combi[2] == combi[3]:
-                ans += 1
-
-        return ans
+        return sum(
+            1
+            for combi in combinations(nums, 4)
+            if combi[0] + combi[1] + combi[2] == combi[3]
+        )
