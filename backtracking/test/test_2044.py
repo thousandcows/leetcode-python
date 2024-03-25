@@ -10,18 +10,22 @@ class MyTestCase(unittest.TestCase):
         nums = [3, 1]
         expected = 2
         self.assertEqual(
-            expected, CountNumberOfMaximumBitwiseOrSubsets.solution(nums)
+            expected, CountNumberOfMaximumBitwiseOrSubsets.solution_dp(nums)
         )  # add assertion here
 
     def test_case_two(self):
         nums = [2, 2, 2]
         expected = 7
-        self.assertEqual(expected, CountNumberOfMaximumBitwiseOrSubsets.solution(nums))
+        self.assertEqual(
+            expected, CountNumberOfMaximumBitwiseOrSubsets.solution_dp(nums)
+        )
 
     def test_case_three(self):
         nums = [3, 2, 1, 5]
         expected = 6
-        self.assertEqual(expected, CountNumberOfMaximumBitwiseOrSubsets.solution(nums))
+        self.assertEqual(
+            expected, CountNumberOfMaximumBitwiseOrSubsets.solution_dp(nums)
+        )
 
 
 if __name__ == "__main__":

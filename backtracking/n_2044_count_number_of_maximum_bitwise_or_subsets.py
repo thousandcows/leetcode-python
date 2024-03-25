@@ -1,3 +1,5 @@
+from collections import defaultdict
+
 from utils.time_measurement import time_measurement
 
 
@@ -25,3 +27,13 @@ class CountNumberOfMaximumBitwiseOrSubsets:
             dfs(0, start_index)
 
         return max_count
+
+    @staticmethod
+    @time_measurement
+    def solution_dp(nums: list[int]) -> int:
+        dp = defaultdict(int)
+        dp[0] = 1
+        for num in nums:
+            for key, value in list(dp.items()):
+                dp[key | num] += value
+        return dp[max(dp.keys())]
