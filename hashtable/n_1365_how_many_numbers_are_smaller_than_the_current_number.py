@@ -25,3 +25,9 @@ class HowManyNumbersAreSmallerThanTheCurrentNumber:
 
             answer.append(cnt)
         return answer
+
+    @staticmethod
+    @time_measurement
+    def pythonic_solution(nums: list[int]) -> list[int]:
+        sorted_nums = sorted(nums)
+        return [sorted_nums.index(n) for n in nums]
