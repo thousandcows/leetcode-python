@@ -18,3 +18,32 @@ class ConstructSmallestNumberFromDIString:
                     break
             if flag:
                 return st
+
+    @staticmethod
+    @time_measurement
+    def backtracking_solution(pattern: str) -> str:
+        def backtrack(curr_num: int, curr_idx: int, used: set, last_digit: int):
+            nonlocal min_str
+
+            if str(curr_num) > str(min_str):
+                return
+
+            if len(used) == len(pattern) + 1:
+                min_str = min(min_str, curr_num)
+                return
+
+            for n in num_list:
+                if n in used:
+                    continue
+                if pattern[curr_idx] == "D" and n > last_digit:
+                    continue
+                if pattern[curr_idx] == "I" and n < last_digit:
+                    continue
+                backtrack(curr_num * 10 + n, curr_idx + 1, used | {n}, n)
+
+        min_str = float("inf")
+        num_list = [i for i in range(1, len(pattern) + 2)]
+        for n in num_list:
+            backtrack(n, 0, {n}, n)
+
+        return str(min_str)
