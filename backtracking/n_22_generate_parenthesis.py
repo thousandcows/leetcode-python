@@ -5,28 +5,17 @@ class GenerateParenthesis:
     @staticmethod
     @time_measurement
     def solution(n: int):
-        def is_valid(parenthesis: str):
-            stack = []
-            for p in parenthesis:
-                if p == "(":
-                    stack.append(p)
-                elif p == ")" and len(stack) == 0:
-                    return False
-                elif p == ")" and stack[-1] == "(":
-                    stack.pop()
-            return len(stack) == 0
-
-        def backtrack(parenthesis: str):
-            nonlocal limit
-            if len(parenthesis) == limit:
-                if is_valid(parenthesis):
-                    answer.append(parenthesis)
+        def backtrack(parenthesis: str, open_count: int, close_count: int):
+            if open_count == n and close_count == 0:
+                answer.append(parenthesis)
                 return
 
-            backtrack(parenthesis + "(")
-            backtrack(parenthesis + ")")
+            if open_count < n:
+                backtrack(parenthesis + "(", open_count + 1, close_count + 1)
 
-        limit = 2 * n
+            if close_count > 0:
+                backtrack(parenthesis + ")", open_count, close_count - 1)
+
         answer = []
-        backtrack("(")
+        backtrack("(", 1, 1)
         return answer
