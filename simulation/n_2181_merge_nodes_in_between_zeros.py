@@ -11,28 +11,19 @@ class MergeNodesInBetweenZeros:
     @staticmethod
     @time_measurement
     def solution(head: ListNode) -> ListNode:
-        output, curr_node, before_node = None, head.next, None
-        # 0 1 0 3 0 2 2 0
-        while True:
-            curr_sum = 0
-            new_node = None
-            while True:
-                if curr_node.val == 0:
-                    break
-                curr_sum += curr_node.val
-                curr_node = curr_node.next
+        output = head
+        ptr = head.next
+        curr_sum = 0
 
-            if curr_sum > 0:
-                new_node = ListNode(curr_sum, None)
+        while ptr.next:
+            if ptr.val == 0:
+                output.val = curr_sum
+                output = output.next
+                curr_sum = 0
+            else:
+                curr_sum += ptr.val
+            ptr = ptr.next
 
-            if before_node is None:
-                output, before_node = new_node, new_node
-            elif new_node:
-                before_node.next = new_node
-                before_node = new_node
-
-            if curr_node.next is None:
-                break
-            curr_node = curr_node.next
-
-        return output
+        output.val = curr_sum
+        output.next = None
+        return head
