@@ -5,22 +5,18 @@ class ClumsyFactorial:
     @staticmethod
     @time_measurement
     def solution(n: int) -> int:
-        operators = ["*", "//", "+", "-"]
-        equation = ""
-        operator_index = 0
-        for i in range(n, 0, -1):
-            if operator_index == 0:
-                equation += str(i) if equation == "" else operators[3] + str(i)
-            elif operator_index == 1:
-                equation += operators[0] + str(i)
-            elif operator_index == 2:
-                equation += operators[1] + str(i)
-            elif operator_index == 3:
-                equation += operators[2] + str(i)
-
-            if operator_index == 3:
-                operator_index = 0
-                continue
-            operator_index += 1
-
-        return int(eval(equation))
+        if n == 1:
+            return 1
+        elif n == 2:
+            return 2
+        elif n == 3:
+            return 6
+        elif n == 4:
+            return 7
+        else:
+            if n % 4 == 0:
+                return n + 1
+            elif n % 4 <= 2:
+                return n + 2
+            else:
+                return n - 1
