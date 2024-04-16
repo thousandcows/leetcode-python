@@ -11,5 +11,5 @@ class QueriesOnAPermutationWithKey:
         for n in queries:
             index = p.index(n)
             ans.append(index)
-            p = [n] + [i for i in p if i != n]
+            p.insert(0, p.pop(index))
         return ans
